@@ -953,20 +953,7 @@ static gboolean rot_ctrl_timeout_cb(gpointer data)
         }
         else
         {
-            if (ctrl->errcnt >= MAX_ERROR_COUNT)
-            {
-                /* disengage device */
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ctrl->LockBut),
-                                             FALSE);
-                ctrl->engaged = FALSE;
-                sat_log_log(SAT_LOG_LEVEL_ERROR,
-                            _
-                            ("%s: MAX_ERROR_COUNT (%d) reached. Disengaging device!"),
-                            __func__, MAX_ERROR_COUNT);
-                ctrl->errcnt = 0;
-                //g_print ("ERROR. WROPS: %d   RDOPS: %d\n", ctrl->wrops, ctrl->rdops);
-            }
-            else
+           
             {
                 /* increment error counter */
                 ctrl->errcnt++;
